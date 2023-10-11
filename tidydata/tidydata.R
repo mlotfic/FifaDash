@@ -236,7 +236,7 @@ write.csv(f_t,  "database/fifa_series_teams.csv",   fileEncoding = "UTF-8")
 
 # 12. Remove Environment --------------------------------------------------
 
-rm(f, f_t, f16, f17, f18, f19, f20, f16_p, f17_p, f18_p, f20_p, temp)
+## rm(f, f_t, f16, f17, f18, f19, f20, f16_p, f17_p, f18_p, f20_p, temp)
 
 
 
