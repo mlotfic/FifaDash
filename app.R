@@ -20,13 +20,13 @@ header <- shinydashboardPlus::dashboardHeader(title = tags$img(src='fifalogo.png
 
 sidebar <- tagList(
     sidebarMenu(id="tabs",
-                menuItem("Home", tabName = "tab_home", icon = icon("home")), 
-                menuItem("Leagues", tabName = "tab_leagues", icon = icon("futbol")),
-                menuItem("Teams", tabName = "tab_teams", icon = icon("users")),
-                menuItem("Players", tabName = "tab_players", icon = icon("walking")),
-                menuItem("Scout", tabName = "tab_scout", icon = icon("address-card")), # crosshairs
-                menuItem("Developer", tabName = "tab_dev", icon = icon("child")),
-                menuItem("Videos", tabName = "tab_video", icon = icon("youtube"))
+                menuItem("Home",      tabName = "tab_home",    icon = icon("home")), 
+                menuItem("Leagues",   tabName = "tab_leagues", icon = icon("futbol")),
+                menuItem("Teams",     tabName = "tab_teams",   icon = icon("users")),
+                menuItem("Players",   tabName = "tab_players", icon = icon("walking")),
+                menuItem("Scout",     tabName = "tab_scout",   icon = icon("address-card")), # crosshairs
+                menuItem("Developer", tabName = "tab_dev",     icon = icon("child")),
+                menuItem("Videos",    tabName = "tab_video",   icon = icon("youtube"))
     )
 )
 
@@ -64,18 +64,18 @@ body <- tagList(
 )
 
 
-# 7. UI -------------------------------------------------------------------
+# 7. UI ------------------------------------------------------------------------
 
 ui <-  shinydashboardPlus::dashboardPage(
   
-  title="FIFA 19 DS & ML Applications", skin = "green",
+  title     =  "FIFA 19 DS & ML Applications", skin = "green",
+  
+  # Header ---------------------------------------------------------------------
+  header    = header,
     
-  # Header
-  header,
-    
-  # Sidebar
-  dashboardSidebar(
-    width = 220,br(), 
+  # Sidebar --------------------------------------------------------------------
+  sidebar   = dashboardSidebar(
+    width = 220, br(), 
     #tags$script(JS("document.getElementsByClassName('sidebar-toggle')[0].style.visibility = 'hidden';")), # Header Toggle
     uiOutput("mySidebarUI")
     ),
