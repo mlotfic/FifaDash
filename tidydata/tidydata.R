@@ -15,7 +15,7 @@
 
 # 1. FIFA 19 Data Import --------------------------------------------------
 
-temp <- read.csv("FifaDash/database/data.csv", encoding = "UTF-8")[-1]
+temp <- read.csv("database/data.csv", encoding = "UTF-8")[-1]
 
 # 2. Create Leagues -------------------------------------------------------
 
@@ -192,10 +192,10 @@ temp %<>%
 
 # Read Other FIFA Series & Manipulation #
 
-f16 <- read.csv("FifaDash/database/players_16.csv", encoding = "UTF-8")
-f17 <- read.csv("FifaDash/database/players_17.csv", encoding = "UTF-8")
-f18 <- read.csv("FifaDash/database/players_18.csv", encoding = "UTF-8")
-f20 <- read.csv("FifaDash/database/players_20.csv", encoding = "UTF-8")
+f16 <- read.csv("database/players_16.csv", encoding = "UTF-8")
+f17 <- read.csv("database/players_17.csv", encoding = "UTF-8")
+f18 <- read.csv("database/players_18.csv", encoding = "UTF-8")
+f20 <- read.csv("database/players_20.csv", encoding = "UTF-8")
 
 f16_p <- f16 %>% select(sofifa_id, short_name, value_eur, club) %>% mutate(fifa = "FIFA 16")
 f17_p <- f17 %>% select(sofifa_id, short_name, value_eur, club) %>% mutate(fifa = "FIFA 17")
@@ -229,9 +229,9 @@ temp %<>% select(-ID, -Body.Type, -Real.Face, -Joined, -Loaned.From, -Release.Cl
 
 # 11. Write Data ----------------------------------------------------------
 
-write.csv(temp, "FifaDash/database/fifa19_data.csv", fileEncoding = "UTF-8")
-write.csv(f, "FifaDash/database/fifa_series_players.csv", fileEncoding = "UTF-8")
-write.csv(f_t, "FifaDash/database/fifa_series_teams.csv", fileEncoding = "UTF-8")
+write.csv(temp, "database/fifa19_data.csv",         fileEncoding = "UTF-8")
+write.csv(f,    "database/fifa_series_players.csv", fileEncoding = "UTF-8")
+write.csv(f_t,  "database/fifa_series_teams.csv",   fileEncoding = "UTF-8")
 
 
 # 12. Remove Environment --------------------------------------------------

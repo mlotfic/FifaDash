@@ -11,8 +11,9 @@ source("server/2_functions.R")
 
 # 4. HEADER ---------------------------------------------------------------
 
-header <- dashboardHeaderPlus(title = tags$img(src='fifalogo.png', height = 28), 
-                              enable_rightsidebar = FALSE, titleWidth = 250)
+header <- shinydashboardPlus::dashboardHeader(title = tags$img(src='fifalogo.png', height = 28), 
+                              #enable_rightsidebar = FALSE, 
+                              titleWidth = 250)
 
 
 # 5. SIDEBAR --------------------------------------------------------------
@@ -31,15 +32,15 @@ sidebar <- tagList(
 
 # 6. BODY -----------------------------------------------------------------
 
-body <- tagList(br(), useShinyjs(),useShinyalert(),
-                # Slider Color
-                chooseSliderSkin(skin="Modern", color = "rosybrown"),
-                
-
-                tabItems(
-
-                  # Home
-                  source(file.path("ui", "home.R"),  local = TRUE, encoding = "UTF-8" )$value,
+body <- tagList(
+  br(), 
+  useShinyjs(),
+  useShinyalert(force = TRUE),
+  # Slider Color
+  chooseSliderSkin(skin="Modern", color = "rosybrown"),
+  tabItems(
+    # Home
+    source(file.path("ui", "home.R"),  local = TRUE, encoding = "UTF-8" )$value,
 
                   # League
                   source(file.path("ui", "league.R"),  local = TRUE, encoding = "UTF-8" )$value,
@@ -65,7 +66,7 @@ body <- tagList(br(), useShinyjs(),useShinyalert(),
 
 # 7. UI -------------------------------------------------------------------
 
-ui <-  dashboardPagePlus(
+ui <-  shinydashboardPlus::dashboardPage(
   
   title="FIFA 19 DS & ML Applications", skin = "green",
     
@@ -106,14 +107,14 @@ ui <-  dashboardPagePlus(
     ),
   
   # Footer
-  tags$footer(class="main-footer",
-              tagList(
-                span(style="", "Developed by",tags$strong("Ekrem BAYAR")," 2019, ",tags$strong("version"), "8.0.0"),
-                span(style="float:right;",tags$img(src="fifa-19-logo.png", height=27))
-                )
-              )
+  footer = shinydashboardPlus::dashboardFooter(
+    left = "By Divad Nojnarg",
+    right = tagList(
+      span(style="", "Developed by",tags$strong("Ekrem BAYAR")," 2019, ",tags$strong("version"), "8.0.0"),
+      span(style="float:right;",tags$img(src="fifa-19-logo.png", height=27))
+    )
   )
-
+)
 
 
 # 8. SERVER ---------------------------------------------------------------
@@ -126,7 +127,7 @@ server <- function(input, output, session) {
   # Render UI
   observe({
     output$mySidebarUI <- renderUI({ sidebar })
-    output$myBodyUI <- renderUI({  body })
+    output$myBodyUI    <- renderUI({  body })
     
     isolate({updateTabItems(session, "tabs", "tab_home")})
     

@@ -5,7 +5,7 @@ tabItem(tabName = "tab_dev",
           
           column(width = 6,
                  
-                 widgetUserBox(
+                 shinydashboardPlus::boxProfile(
                    title = tags$em("Ekrem BAYAR"),
                    subtitle = tagList(
                      p(tags$strong("Developer")),
@@ -13,28 +13,28 @@ tabItem(tabName = "tab_dev",
                                       ),
                    type = 2,
                    width = 10,
-                   src = "ekrem.png",
+                   image = "ekrem.png",
                    color = "green",
                    closable = FALSE,
                    footer_padding = FALSE,
                    collapsible = FALSE,
-                   socialButton(
-                     url = "https://www.linkedin.com/in/ekrem-bayar-3838aba9/",
-                     type = "linkedin"),
-                   socialButton(
-                     url = "https://www.kaggle.com/ekrembayar",
-                     type = "kaggle"
+                   shinydashboardPlus::socialButton(
+                     href = "https://www.linkedin.com/in/ekrem-bayar-3838aba9/",
+                     icon = icon("linkedin")),
+                   shinydashboardPlus::socialButton(
+                     href = "https://www.kaggle.com/ekrembayar",
+                     icon = icon("kaggle")
                      ),
-                   socialButton(
-                     url = "https://www.youtube.com/channel/UC6sRvi8MsLRpeYY35EuDNuw/videos",
-                     type = "youtube")
+                   shinydashboardPlus::socialButton(
+                     href = "https://www.youtube.com/channel/UC6sRvi8MsLRpeYY35EuDNuw/videos",
+                     icon = icon("youtube"))
                    )
                  
                  ),
           
           column(width = 6,
                  
-                 widgetUserBox(
+                 shinydashboardPlus::boxProfile(
                    title = tags$em("Alperen BALIK"),
                    subtitle = tagList(
                      p(tags$strong("Contributor")),
@@ -42,14 +42,14 @@ tabItem(tabName = "tab_dev",
                      ),
                    type = 2,
                    width = 10,
-                   src = "alperen.jpeg",
+                   image = "alperen.jpeg",
                    color = "green",
                    closable = FALSE,
                    footer_padding = FALSE,
                    collapsible = FALSE,
-                   socialButton(
-                     url = "https://www.linkedin.com/in/alperen-bal%C4%B1k-057097142/",
-                     type = "linkedin")
+                   shinydashboardPlus::socialButton(
+                     href = "https://www.linkedin.com/in/alperen-bal%C4%B1k-057097142/",
+                     icon = icon("linkedin"))
                  )
                  
           )

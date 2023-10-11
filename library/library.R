@@ -34,4 +34,5 @@ suppressMessages(library(d3heatmap))
 suppressMessages(library(rsconnect))
 suppressMessages(library(rmarkdown))
 
-
+# if (!require("devtools")) install.packages("devtools")
+# devtools::install_github("talgalili/d3heatmap")
